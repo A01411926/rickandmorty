@@ -1,0 +1,5 @@
+{
+  "recommendations": ["dbaeumer.vscode-eslint", "esbenp.prettier-vscode"],
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
+}

@@ -1,0 +1,2 @@
+# use this if your project is at the root of your repo
+cd 04-nestjs-rick-and-morty && npx lint-staged
