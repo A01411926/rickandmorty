@@ -1,5 +1,6 @@
 // src/app/favorites/page.tsx
 "use client";
+import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 import Card from "../components/CharCard";
 import NavBar from "../components/NavBar";
@@ -26,6 +27,7 @@ type character = {
 };
 
 export default function Favorites() {
+  const { data: session, status } = useSession();
   const [characters, setCharacters] = useState<character[]>([]);
 
   const fetchData = async () => {
@@ -39,7 +41,7 @@ export default function Favorites() {
 
       for (const id of favoritesArray) {
         const response = await fetch(
-          `https://rickandmortyapi.com/api/character/${id}`,
+          `https://rickandmortyapi.com/api/character/${id}`
         );
         if (!response.ok) {
           continue;
@@ -55,8 +57,18 @@ export default function Favorites() {
   };
 
   useEffect(() => {
-    fetchData();
-  }, []);
+    if (status === "authenticated") {
+      fetchData();
+    }
+  }, [status]);
+
+  if (status === "loading") {
+    return <p>Loading...</p>;
+  }
+
+  if (status === "unauthenticated") {
+    return <p>You need to be authenticated to view this page.</p>;
+  }
 
   return (
     <>
@@ -69,10 +81,6 @@ export default function Favorites() {
               id={character.id}
               imgUrl={character.image}
               name={character.name}
-              status={character.status}
-              species={character.species}
-              gender={character.gender}
-              location={character.location?.name ?? "Unknown"}
             />
           ))}
         </div>
