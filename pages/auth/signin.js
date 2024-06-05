@@ -1,4 +1,4 @@
-import { signIn } from 'next-auth/react';
+import { signIn } from "next-auth/react";
 
 export default function SignIn() {
   return (
@@ -9,11 +9,16 @@ export default function SignIn() {
           e.preventDefault();
           const email = e.target.email.value;
           const password = e.target.password.value;
-          signIn('credentials', { email, password });
+          signIn("credentials", { email, password });
         }}
       >
         <input type="email" name="email" placeholder="Email" required />
-        <input type="password" name="password" placeholder="Password" required />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
         <button type="submit">Sign In</button>
       </form>
     </div>

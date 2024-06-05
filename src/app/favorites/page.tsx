@@ -41,7 +41,7 @@ export default function Favorites() {
 
       for (const id of favoritesArray) {
         const response = await fetch(
-          `https://rickandmortyapi.com/api/character/${id}`
+          `https://rickandmortyapi.com/api/character/${id}`,
         );
         if (!response.ok) {
           continue;

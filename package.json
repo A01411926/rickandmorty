@@ -10,7 +10,7 @@
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "prettier:fix": "prettier --write .",
-    "prepare": "cd .. && husky 04-nestjs-rick-and-morty/.husky || true"
+    "prepare": "husky || true"
   },
   "dependencies": {
     "@next-auth/prisma-adapter": "^1.0.7",

@@ -9,11 +9,7 @@ interface Props {
   name: string;
 }
 
-const Card: React.FC<Props> = ({
-  id,
-  imgUrl,
-  name,
-}) => {
+const Card: React.FC<Props> = ({ id, imgUrl, name }) => {
   const [favorite, setFavorite] = useState<boolean>(false);
 
   useEffect(() => {

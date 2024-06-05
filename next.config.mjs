@@ -1,4 +1,4 @@
-import path from 'path';
+import path from "path";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -7,10 +7,10 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'rickandmortyapi.com',
-        port: '',
-        pathname: '/api/character/avatar/**',
+        protocol: "https",
+        hostname: "rickandmortyapi.com",
+        port: "",
+        pathname: "/api/character/avatar/**",
       },
     ],
   },
@@ -21,7 +21,7 @@ const nextConfig = {
 
     config.resolve.alias = {
       ...config.resolve.alias,
-      '@lib': path.resolve(process.cwd(), 'lib'),
+      "@lib": path.resolve(process.cwd(), "lib"),
     };
 
     return config;

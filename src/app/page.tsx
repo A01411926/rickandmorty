@@ -61,10 +61,10 @@ export default function Home() {
               id={character.id}
               imgUrl={character.image}
               name={character.name}
-              status={character.status}
-              species={character.species}
-              gender={character.gender}
-              location={character.location.name}
+              // status={character.status}
+              // species={character.species}
+              // gender={character.gender}
+              // location={character.location.name}
             />
           ))}
         </div>
