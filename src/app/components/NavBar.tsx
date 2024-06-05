@@ -1,10 +1,14 @@
+import { useSession, signIn, signOut } from "next-auth/react";
+import Link from "next/link";
 import Image from "next/image";
 
 export default function NavBar() {
+  const { data: session, status } = useSession();
+
   return (
     <nav className="border-gray-200 bg-sky-500">
       <div className="mx-auto flex max-w-screen-xl flex-wrap items-center justify-between p-1">
-        <a href="/" className="mr-auto flex items-center">
+        <Link href="/" className="mr-auto flex items-center">
           <Image
             src="/rick_and_morty.png"
             className="h-40"
@@ -12,7 +16,7 @@ export default function NavBar() {
             width={160}
             height={40}
           />
-        </a>
+        </Link>
         <button
           data-collapse-toggle="navbar-default"
           type="button"
@@ -39,14 +43,23 @@ export default function NavBar() {
         </button>
         <div className="hidden w-full md:block md:w-auto" id="navbar-default">
           <ul className="mt-4 flex-col border-gray-100 bg-gray-50 p-4 font-medium md:mt-0 md:flex-row md:border-0 md:bg-sky-500 md:p-0 rtl:space-x-reverse ">
-            <li></li>
             <li>
-              <a
+              <Link
                 href="/favorites"
                 className="block rounded px-5 py-5 text-yellow-100 md:p-20 md:dark:hover:text-sky-500"
               >
                 Favorites
-              </a>
+              </Link>
+            </li>
+            <li>
+              {status === "authenticated" ? (
+                <>
+                  <span>{session.user.email}</span>
+                  <button onClick={() => signOut()}>Sign Out</button>
+                </>
+              ) : (
+                <button onClick={() => signIn()}>Sign In</button>
+              )}
             </li>
           </ul>
         </div>

@@ -1,3 +1,4 @@
+// src/app/components/CharCard.tsx
 "use client";
 import { useEffect, useState } from "react";
 import Image from "next/image";
@@ -6,20 +7,12 @@ interface Props {
   id: number;
   imgUrl: string;
   name: string;
-  status: string;
-  species: string;
-  gender: string;
-  location: string;
 }
 
 const Card: React.FC<Props> = ({
   id,
   imgUrl,
   name,
-  status,
-  species,
-  gender,
-  location,
 }) => {
   const [favorite, setFavorite] = useState<boolean>(false);
 
@@ -53,8 +46,8 @@ const Card: React.FC<Props> = ({
           className="w-full"
           src={imgUrl}
           alt={name}
-          width={500}
-          height={500}
+          width={300}
+          height={300}
         />
         <button
           onClick={toggleFavorite}
@@ -79,10 +72,6 @@ const Card: React.FC<Props> = ({
         <div className="absolute bottom-0 w-full bg-sky-500">
           <a href={`/profile?id=${id}`}>
             <h5 className="text-2xl font-bold text-black">{name}</h5>
-            <p className="text-black">{status}</p>
-            <p className="text-black">{species}</p>
-            <p className="text-black">{gender}</p>
-            <p className="text-black">{location}</p>
           </a>
         </div>
       </div>
