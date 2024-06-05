@@ -12,7 +12,10 @@
     "prepare": "cd .. && husky 04-nestjs-rick-and-morty/.husky || true"
   },
   "dependencies": {
+    "@prisma/client": "^5.15.0",
     "next": "14.2.3",
+    "next-auth": "^4.24.7",
+    "pg": "^8.12.0",
     "react": "^18",
     "react-dom": "^18",
     "zod": "^3.23.8"
@@ -32,6 +35,7 @@
     "postcss": "^8",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.14",
+    "prisma": "^5.15.0",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }
