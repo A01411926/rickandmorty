@@ -1,5 +1,5 @@
 import { getSession } from "next-auth/react";
-import { prisma } from "@lib/prisma";
+import prisma from "../../lib/prisma";
 
 const handler = async (req, res) => {
   const session = await getSession({ req });
@@ -9,7 +9,7 @@ const handler = async (req, res) => {
   }
 
   const user = await prisma.user.findUnique({
-    where: { email: session.user.email },
+    where: { email: session.user?.email },
   });
 
   if (req.method === "POST") {
@@ -18,7 +18,7 @@ const handler = async (req, res) => {
     const favorite = await prisma.favorite.create({
       data: {
         characterId,
-        user: { connect: { id: user.id } },
+        user: { connect: { id: user?.id } },
       },
     });
 
@@ -29,7 +29,7 @@ const handler = async (req, res) => {
     const favorite = await prisma.favorite.deleteMany({
       where: {
         characterId,
-        userId: user.id,
+        userId: user?.id,
       },
     });
 

@@ -54,7 +54,7 @@ export default function NavBar() {
             <li>
               {status === "authenticated" ? (
                 <>
-                  <span>{session.user.email}</span>
+                  <span>{session?.user?.email}</span>
                   <button onClick={() => signOut()}>Sign Out</button>
                 </>
               ) : (

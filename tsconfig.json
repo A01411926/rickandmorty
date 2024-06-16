@@ -21,6 +21,15 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "pages/auth/signin.js",
+    "pages/auth/error.js",
+    "pages/api/favorites.js",
+    "pages/_app.js"
+  ],
   "exclude": ["node_modules"]
 }
